@@ -41,9 +41,12 @@
         </div>
       </div>
       <div class="order-1 md:order-2">
-        @if(isset($about->gambar))
-        <img src="{{ asset($about->gambar) }}" alt="Tim Kami" class="rounded-2xl shadow-md w-full">
-        @endif
+       @if(isset($a->gambar))
+    <img src="{{ asset('storage/' . $a->gambar) }}" 
+         alt="Tim Kami" 
+         class="rounded-2xl shadow-md w-full">
+@endif
+
       </div>  
        @endforeach
     </div>

@@ -68,9 +68,12 @@
       </div>
       <!-- Gambar di sebelah kanan -->
       <div class="md:w-1/2 flex justify-center">
-        @if(isset($h->gambar))
-        <img src="{{ asset($h->gambar) }}" alt="Solusi Digital" class=" max-w-full h-80">
-        @endif
+          @if(isset($h->gambar))
+    <img src="{{ asset('storage/' . $h->gambar) }}" 
+         alt="Tim Kami" 
+         class="max-w-full h-80">
+@endif
+        
       </div>
     </div>
     @endforeach

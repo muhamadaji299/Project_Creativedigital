@@ -5,21 +5,18 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Home;
+use Illuminate\Support\Facades\Storage;
 
 class AdminHomeController extends Controller
 {
     public function index()
     {
-        // Ambil data pertama dari tabel homes (anggap hanya 1 data)
         $home = Home::first();
-
         return view('admin.home.index', compact('home'));
     }
 
     public function storeOrUpdate(Request $request)
     {
-
-
         $request->validate([
             'judul' => 'required|string|max:255',
             'keterangan' => 'required|string',
@@ -30,41 +27,41 @@ class AdminHomeController extends Controller
             'deskripsi_judul2' => 'nullable|string',
         ]);
 
-        $home = Home::first(); // hanya ada 1 record
+        // hanya ada 1 record
+        $home = Home::first();
 
-        // Handle upload gambar jika ada
+        // ========== UPLOAD GAMBAR ==========
         if ($request->hasFile('gambar')) {
-            $fileName = time() . '.' . $request->gambar->extension();
-            $request->gambar->move(public_path('uploads'), $fileName);
-            $gambar = $fileName;
+
+            // hapus gambar lama jika ada
+            if ($home && $home->gambar && Storage::exists('public/' . $home->gambar)) {
+                Storage::delete('public/' . $home->gambar);
+            }
+
+            // simpan gambar baru ke folder yg sama dengan About
+            $path = $request->file('gambar')->store('uploads/home', 'public');
+
         } else {
-            $gambar = $home->gambar ?? null;
+            // gunakan gambar lama
+            $path = $home->gambar ?? null;
         }
+
+        // ========== UPDATE / CREATE ==========
+        $data = [
+            'judul' => $request->judul,
+            'keterangan' => $request->keterangan,
+            'gambar' => $path,
+            'judul1' => $request->judul1,
+            'judul2' => $request->judul2,
+            'deskripsi_judul1' => $request->deskripsi_judul1,
+            'deskripsi_judul2' => $request->deskripsi_judul2,
+        ];
 
         if ($home) {
-            // update data
-            $home->update([
-                'judul' => $request->judul,
-                'keterangan' => $request->keterangan,
-                'gambar' => $gambar,
-                'judul1' => $request->judul1,
-                'judul2' => $request->judul2,
-                'deskripsi_judul1' => $request->deskripsi_judul1,
-                'deskripsi_judul2' => $request->deskripsi_judul2
-            ]);
+            $home->update($data);
         } else {
-            // buat data baru
-            Home::create([
-                'judul' => $request->judul,
-                'keterangan' => $request->keterangan,
-                'gambar' => $gambar,
-                'judul1' => $request->judul1,
-                'judul2' => $request->judul2,
-                'deskripsi_judul1' => $request->deskripsi_judul1,
-                'deskripsi_judul2' => $request->deskripsi_judul2
-            ]);
+            Home::create($data);
         }
-
 
         return redirect()->route('homesa')->with('success', 'Data berhasil disimpan!');
     }

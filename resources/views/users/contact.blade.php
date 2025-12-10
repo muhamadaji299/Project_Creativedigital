@@ -89,7 +89,7 @@
               </div>
               <div>
                 <p class="font-semibold text-gray-800">Alamat</p>
-                <p class="text-gray-600">Jl. Merdeka No. 25, Bandung, Jawa Barat, Indonesia</p>
+                <p class="text-gray-600">{{ optional($configuration->first())->judul_about }}</p>
               </div>
             </div>
             
@@ -99,7 +99,7 @@
               </div>
               <div>
                 <p class="font-semibold text-gray-800">Email</p>
-                <a href="mailto:info@creativedigital.id" class="text-blue-500 hover:underline">info@creativedigital.id</a>
+                <a href="mailto:info@creativedigital.id" class="text-blue-500 hover:underline">{{ optional($configuration->first())->judul_portofolio }}</a>
               </div>
             </div>
             
@@ -109,7 +109,7 @@
               </div>
               <div>
                 <p class="font-semibold text-gray-800">Telepon</p>
-                <a href="tel:+6281234567890" class="text-blue-500 hover:underline">+62 812-3456-7890</a>
+                <a href="tel:+6281234567890" class="text-blue-500 hover:underline">{{ optional($configuration->first())->keterangan_services }}</a>
               </div>
             </div>
             
@@ -164,7 +164,7 @@
     
       <div class="rounded-2xl overflow-hidden shadow-lg mt-10">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.879236518899!2d110.3874328746848!3d-7.808777777974979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57754b000001%3A0x9a56e301ea7fffa9!2sJl.%20Merdeka%20No.25%2C%20Bandung!5e0!3m2!1sid!2sid!4v1698747368199!5m2!1sid!2sid"
+          src="{{ optional($configuration->first())->keterangan_about }}"
           width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
     

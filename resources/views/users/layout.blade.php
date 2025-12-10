@@ -32,11 +32,15 @@
       <!-- Logo + Teks -->
       <h1 class="flex items-center space-x-2 text-xl font-bold text-blue-500">
         @foreach($configuration as $config)
-        @if($config->icon_images)
-        <img src="{{ asset('uploads/' . $config->icon_images) }}" alt="Logo" class="h-12 w-12 object-contain">
+        @if(isset($config->icon_images))
+        <img src="{{ asset('storage/' . $config->icon_images) }}"
+          alt="Tim Kami"
+          class="h-12 w-12 object-contain">
         @endif
+
         <span>{{ $config->nama_website }}</span>
         @endforeach
+
       </h1>
 
       <!-- Nav Links Desktop -->
@@ -72,14 +76,14 @@
     <!-- Mobile Menu -->
     <div id="menu" class="hidden lg:hidden bg-white shadow-md">
       <ul class="flex flex-col space-y-2 px-6 py-4">
-        <li><a href="#home" class="block py-2 hover:text-blue-600">Home</a></li>
+        <li><a href="{{ route('home.index')}}" class="block py-2 hover:text-blue-600">Home</a></li>
 
         <!-- Mobile Services Dropdown -->
-        <li><a href="#about" class="block py-2 hover:text-blue-600">About</a></li>
-        <li><a href="#services" class="block py-2 hover:text-blue-600">Services</a></li>
+        <li><a href="{{ route('about.index')}}" class="block py-2 hover:text-blue-600">About</a></li>
+        <li><a href="{{ route('services.index')}}" class="block py-2 hover:text-blue-600">Services</a></li>
 
-        <li><a href="#portfolio" class="block py-2 hover:text-blue-600">Portfolio</a></li>
-        <li><a href="#contact" class="block py-2 hover:text-blue-600">Contact</a></li>
+        <li><a href="{{ route('project .index')}}" class="block py-2 hover:text-blue-600">Portfolio</a></li>
+        <li><a href="{{ route('contact.index')}}" class="block py-2 hover:text-blue-600">Contact</a></li>
       </ul>
 
       <!-- Social Mobile -->
@@ -149,7 +153,7 @@
   </footer>
 
   <div class="fixed bottom-5 right-5 z-50 flex items-center space-x-2 bg-blue-500 px-3 py-2 rounded-full shadow-lg">
-    <a href="https://wa.me/6281234567890" target="_blank" class="flex items-center space-x-2" aria-label="Chat WhatsApp">
+    <a href="https://wa.me/{{ optional($configuration->first())->judul_services }}" target="_blank" class="flex items-center space-x-2" aria-label="Chat WhatsApp">
       <div class="bg-white rounded-full p-1 flex items-center justify-center">
         <img src="https://img.icons8.com/ios-filled/50/3B82F6/whatsapp--v1.png" alt="WhatsApp" class="w-6 h-6 hover:scale-110 transition duration-300">
       </div>

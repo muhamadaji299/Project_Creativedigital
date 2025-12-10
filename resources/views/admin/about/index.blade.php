@@ -38,9 +38,11 @@
           <!-- Field Gambar -->
           <div class="mb-6">
             <label for="gambar" class="block text-sm font-medium text-gray-700 mb-2">Gambar</label>
-            @if(isset($about->gambar))
-              <img src="{{ asset($about->gambar) }}" class="w-24 h-24 object-cover rounded-lg border border-gray-200 mb-3" alt="Gambar Saat Ini">
-            @endif
+         @if($about && $about->gambar)
+    <img src="{{ asset('storage/' . $about->gambar) }}" class="w-40 h-40 object-cover">
+@endif
+
+
             <input id="gambar" name="gambar" type="file" accept="image/*"
               class="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 cursor-pointer bg-white">
             <p class="text-xs text-gray-500 mt-1">Format: PNG, JPG, GIF. Maksimal ukuran: 2MB</p>

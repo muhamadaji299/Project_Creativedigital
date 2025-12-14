@@ -3,6 +3,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pesan;
+use App\Models\Portofolio;
+use App\Models\Services;
 
 class DashboardController extends Controller
 {
@@ -15,7 +17,9 @@ class DashboardController extends Controller
     {
           $totalPesan = Pesan::count(); // Total pesan
     $pesans = Pesan::latest()->take(5)->get(); // 5 pesan terakhir
+    $totalPortofolio = Portofolio::count(); // Total portofolio
+    $totalServices = Services::count(); // Total layanan
 
-    return view('admin.dashboard.index', compact('totalPesan', 'pesans'));
+    return view('admin.dashboard.index', compact('totalPesan','totalServices','totalPortofolio', 'pesans'));
     }
 }

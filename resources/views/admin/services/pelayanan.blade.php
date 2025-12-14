@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('body')
-<div class="p-6 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 min-h-screen">
+<div class="p-6 bg-gradient-to-br from-gray-50 to-blue-50   min-h-screen">
   <!-- Header Section -->
   <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
     <div class="flex items-center gap-3">
@@ -9,8 +9,8 @@
         <i class='bx bxs-cog text-white text-xl'></i>
       </div>
       <div>
-        <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Manajemen Pelayanan</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Kelola data layanan perusahaan</p>
+        <h2 class="text-2xl font-bold text-gray-800 ">Manajemen Pelayanan</h2>
+        <p class="text-sm text-gray-600 ">Kelola data layanan perusahaan</p>
       </div>
     </div>
     
@@ -22,19 +22,19 @@
   </div>
 
   <!-- Table Card -->
-  <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+  <div class="bg-white  rounded-2xl shadow-xl border border-gray-200  overflow-hidden">
     <!-- Table Header -->
-    <div class="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-700 dark:to-gray-600 px-6 py-4 border-b border-gray-200 dark:border-gray-600">
+    <div class="bg-gradient-to-r from-gray-50 to-blue-50  px-6 py-4 border-b border-gray-200 ">
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <h3 class="text-lg font-semibold text-gray-800 dark:text-white flex items-center gap-2">
-          <i class='bx bx-table text-orange-600 dark:text-orange-400'></i>
+        <h3 class="text-lg font-semibold text-gray-800  flex items-center gap-2">
+          <i class='bx bx-table text-orange-600 '></i>
           Data Pelayanan
         </h3>
         
         <!-- Search -->
         <div class="relative">
           <input type="text" placeholder="Cari pelayanan..." 
-                 class="pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 text-sm">
+                 class="pl-10 pr-4 py-2 border border-gray-300  rounded-lg bg-white  text-gray-800 focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 text-sm">
           <i class='bx bx-search absolute left-3 top-2.5 text-gray-400'></i>
         </div>
       </div>
@@ -43,25 +43,25 @@
     <!-- Responsive Table -->
     <div class="overflow-x-auto">
       <table class="w-full">
-        <thead class="bg-gray-50 dark:bg-gray-700">
+        <thead class="bg-gray-50 ">
           <tr>
-            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-600">#</th>
-            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-600">Icon Pelayanan</th>
-            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-600">Judul Pelayanan</th>
-            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-600">Keterangan Pelayanan</th>
-            <th class="px-6 py-4 text-center text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-gray-600">Aksi</th>
+            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600  uppercase tracking-wider border-b border-gray-200 ">#</th>
+            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600  uppercase tracking-wider border-b border-gray-200 ">Icon Pelayanan</th>
+            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600  uppercase tracking-wider border-b border-gray-200 ">Judul Pelayanan</th>
+            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600  uppercase tracking-wider border-b border-gray-200 ">Keterangan Pelayanan</th>
+            <th class="px-6 py-4 text-center text-xs font-semibold text-gray-600  uppercase tracking-wider border-b border-gray-200 ">Aksi</th>
           </tr>
         </thead>
-        <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+        <tbody class="bg-white  divide-y divide-gray-200 ">
           @foreach($services as $service)
-          <tr class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 group">
+          <tr class="hover:bg-gray-50 transition-all duration-200 group">
             <td class="px-6 py-4 whitespace-nowrap">
-              <span class="text-sm font-bold text-orange-600 dark:text-orange-400">{{ $loop->iteration }}</span>
+              <span class="text-sm font-bold text-orange-600 d">{{ $loop->iteration }}</span>
             </td>
             
             <td class="px-6 py-4 whitespace-nowrap">
               <div class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center overflow-hidden shadow-inner group-hover:scale-105 transition-all duration-300">
+                <div class="w-12 h-12 bg-gray-100  rounded-xl flex items-center justify-center overflow-hidden shadow-inner group-hover:scale-105 transition-all duration-300">
                     @if($service->icon)           
                       <img src="{{ asset('storage/' . $service->icon) }}"  class="w-full h-full object-cover">
                     @endif  
@@ -70,13 +70,13 @@
             </td>
 
             <td class="px-6 py-4 whitespace-nowrap">
-              <div class="text-sm font-medium text-gray-900 dark:text-white">
+              <div class="text-sm font-medium text-gray-900 ">
                 {{ $service->judul_pelayanan }}
               </div>
             </td>
 
             <td class="px-6 py-4 whitespace-nowrap">
-              <div class="text-sm text-gray-900 dark:text-white">
+              <div class="text-sm text-gray-900 ">
                 {{ $service->keterangan_pelayanan }}
               </div>
             </td>
@@ -108,11 +108,11 @@
       <!-- Empty State -->
       @if($services->isEmpty())
       <div class="text-center py-12">
-        <div class="w-24 h-24 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div class="w-24 h-24 bg-gray-100  rounded-full flex items-center justify-center mx-auto mb-4">
           <i class='bx bx-cog text-4xl text-gray-400'></i>
         </div>
-        <h3 class="text-lg font-medium text-gray-800 dark:text-white mb-2">Belum Ada Data Pelayanan</h3>
-        <p class="text-gray-600 dark:text-gray-400 mb-6">Tambahkan pelayanan pertama untuk mulai mengelola data</p>
+        <h3 class="text-lg font-medium text-gray-800  mb-2">Belum Ada Data Pelayanan</h3>
+        <p class="text-gray-600 mb-6">Tambahkan pelayanan pertama untuk mulai mengelola data</p>
         <a href="{{ route('pelayanan.create') }}" 
            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
           Tambah Pelayanan
@@ -122,8 +122,8 @@
     </div>
 
     <!-- Table Footer -->
-    <div class="bg-gray-50 dark:bg-gray-700 px-6 py-3 border-t border-gray-200 dark:border-gray-600">
-      <div class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
+    <div class="bg-gray-50 px-6 py-3 border-t border-gray-200 ">
+      <div class="flex items-center justify-between text-sm text-gray-600 ">
         <span>Menampilkan {{ $services->count() }} data pelayanan</span>
         <div class="flex items-center gap-2">
           <i class='bx bx-cog text-gray-400'></i>

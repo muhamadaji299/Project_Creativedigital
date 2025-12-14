@@ -1,14 +1,23 @@
+@php
+    $phone = preg_replace('/[^0-9]/', '', optional($configuration->first())->judul_services);
+    $message = urlencode(
+        "Halo Admin 👋\n\n"
+        ."Saya tertarik untuk mengetahui lebih lanjut tentang layanan Anda. "
+        ."Bisakah Anda membantu saya?"
+    );
+@endphp
+
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creative Digital | Solusi Website & Aplikasi Profesional</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <title>Creative Digital | Solusi Website & Aplikasi Profesional</title> 
+  <link rel="stylesheet" href="{{ asset('css/output.css') }}">
+  <script src="{{ asset('js/alpine.min.js') }}" defer></script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}">
   <style>
     .service-icon {
       transition: all 0.3s ease;
@@ -153,9 +162,9 @@
   </footer>
 
   <div class="fixed bottom-5 right-5 z-50 flex items-center space-x-2 bg-blue-500 px-3 py-2 rounded-full shadow-lg">
-    <a href="https://wa.me/{{ optional($configuration->first())->judul_services }}" target="_blank" class="flex items-center space-x-2" aria-label="Chat WhatsApp">
+    <a href="https://wa.me/{{ $phone }}?text={{ $message }}" target="_blank" class="flex items-center space-x-2" aria-label="Chat WhatsApp">
       <div class="bg-white rounded-full p-1 flex items-center justify-center">
-        <img src="https://img.icons8.com/ios-filled/50/3B82F6/whatsapp--v1.png" alt="WhatsApp" class="w-6 h-6 hover:scale-110 transition duration-300">
+        <i class="fa-brands fa-whatsapp text-blue-500 text-2xl hover:scale-110 transition duration-300"></i>
       </div>
       <span class="text-white text-sm font-sans">Butuh Bantuan?</span>
     </a>

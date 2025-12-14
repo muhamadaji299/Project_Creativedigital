@@ -39,7 +39,7 @@
         <div class="flex items-center justify-between">
           <div>
             <p class="text-sm font-medium text-gray-600">Total Portfolio</p>
-            <p class="text-3xl font-bold text-gray-900 mt-2">{{ $totalPortfolio ?? 0 }}</p>
+            <p class="text-3xl font-bold text-gray-900 mt-2">{{ $totalPortofolio ?? 0 }}</p>
             <div class="flex items-center mt-2">
               <span class="text-xs text-green-600 bg-green-100 px-2 py-1 rounded-full font-semibold">
                 <i class='bx bx-up-arrow-alt'></i> 5% dari bulan lalu
@@ -56,8 +56,8 @@
       <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
         <div class="flex items-center justify-between">
           <div>
-            <p class="text-sm font-medium text-gray-600">Total Mitra</p>
-            <p class="text-3xl font-bold text-gray-900 mt-2">{{ $totalMitra ?? 0 }}</p>
+            <p class="text-sm font-medium text-gray-600">Total Layanan</p>
+            <p class="text-3xl font-bold text-gray-900 mt-2">{{ $totalServices ?? 0 }}</p>
             <div class="flex items-center mt-2">
               <span class="text-xs text-red-600 bg-red-100 px-2 py-1 rounded-full font-semibold">
                 <i class='bx bx-down-arrow-alt'></i> 2% dari bulan lalu

@@ -4,25 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ asset('css/output.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/sweetalert2/sweetalert2.min.css') }}">
 <script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
-
-  <script>
-    tailwind.config = { 
-      darkMode: 'class',
-      theme: {
-        extend: {
-          animation: {
-            'fade-in': 'fadeIn 0.5s ease-in-out',
-            'slide-up': 'slideUp 0.3s ease-out',
-            'pulse-subtle': 'pulseSubtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-          }
-        }
-      }
-    }
-  </script>
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('assets/boxicons/css/boxicons.min.css') }}">
   <style>
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -83,22 +68,22 @@
     }
   </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200 flex min-h-screen transition-all duration-300">
+<body class="bg-gray-100  text-gray-900 flex min-h-screen transition-all duration-300">
 
   <!-- SIDEBAR -->
-  <aside id="sidebar" class="w-64 bg-white dark:bg-black sidebar-shadow flex flex-col justify-between fixed h-full transition-all duration-500 ease-in-out -translate-x-full lg:translate-x-0 z-50 border-r border-gray-200 dark:border-gray-800">
+  <aside id="sidebar" class="w-64 bg-white sidebar-shadow flex flex-col justify-between fixed h-full transition-all duration-500 ease-in-out -translate-x-full lg:translate-x-0 z-50 border-r border-gray-200">
     
     <!-- Close Button -->
     <div class="flex justify-end p-2 lg:hidden">
-      <button onclick="toggleSidebar()" class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 text-2xl font-bold p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 transform hover:scale-110">
+      <button onclick="toggleSidebar()" class="text-blue-500 hover:text-blue-600 text-2xl font-bold p-2 rounded-full hover:bg-blue-50 transition-all duration-200 transform hover:scale-110">
         &times;
       </button>
     </div>
     
-    <a href="/admin" class="flex items-center gap-2 px-3 py-4 text-blue-500 text-xl font-bold group hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-all duration-300 rounded-lg mx-2 mb-2">
+    <a href="/admin" class="flex items-center gap-2 px-3 py-4 text-blue-500 text-xl font-bold group hover:bg-blue-50 transition-all duration-300 rounded-lg mx-2 mb-2">
         <i class='bx bxs-buildings text-blue-500 text-2xl group-hover:scale-110 transition-transform duration-300'></i>
-        <span class="text-black dark:text-white">Dashboard</span>
-        <span class="text-blue-500 bg-blue-100 dark:bg-blue-900 px-2 py-1 rounded-full text-sm font-bold">CD</span>
+        <span class="text-black">Dashboard</span>
+        <span class="text-blue-500 bg-blue-100 px-2 py-1 rounded-full text-sm font-bold">CD</span>
       </a>
     
     <!-- Logo and Navigation -->
@@ -109,7 +94,7 @@
       <!-- Navigation Menu -->
       <ul class="mt-6 space-y-1 px-3 ">
         <li class="rounded-md">
-          <a href="/admin" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('admin') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/10 hover:text-blue-600 dark:hover:text-blue-400' }} group">
+          <a href="/admin" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('admin') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' }} group">
             <i class='bx bxs-dashboard text-blue-500 menu-icon {{ request()->is('admin') ? 'text-white' : '' }}'></i> 
             <span class="font-medium">Dashboard</span>
             <i class='bx bx-chevron-right ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300'></i>
@@ -117,7 +102,7 @@
         </li>
         
         <li>
-          <a href="/admin/homes" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('/admin/homes*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/10 hover:text-blue-600 dark:hover:text-blue-400' }} group">
+          <a href="/admin/homes" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('/admin/homes*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' }} group">
             <i class='bx bxs-home text-blue-500 menu-icon {{ request()->is('/admin/homes*') ? 'text-white' : '' }}'></i> 
             <span class="font-medium">Home</span>
             <i class='bx bx-chevron-right ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300'></i>
@@ -125,7 +110,7 @@
         </li>
         
         <li>
-          <a href="/admin/abouts" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('abouts*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/10 hover:text-blue-600 dark:hover:text-blue-400' }} group">
+          <a href="/admin/abouts" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('abouts*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' }} group">
             <i class='bx bxs-info-circle text-blue-500 menu-icon {{ request()->is('abouts*') ? 'text-white' : '' }}'></i> 
             <span class="font-medium">About</span>
             <i class='bx bx-chevron-right ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300'></i>
@@ -133,17 +118,17 @@
         </li>
 
         <li class="relative">
-          <button onclick="toggleServices()" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 w-full {{ request()->is('services*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/10 hover:text-blue-600 dark:hover:text-blue-400' }} group">
+          <button onclick="toggleServices()" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 w-full {{ request()->is('services*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' }} group">
             <i class='bx bxs-message-dots text-blue-500 menu-icon {{ request()->is('services*') ? 'text-white' : '' }}'></i> 
             <span class="font-medium">Services</span>
             <i id="servicesArrow" class='bx bx-chevron-down ml-auto transition-transform duration-300'></i>
           </button>
           <div id="servicesDropdown" class="hidden pl-8 mt-2 space-y-1">
-            <!-- <a href="{{ route('services.keterangan')}}" class="menu-item nav-hover flex items-center gap-3 px-6 py-2 rounded-lg transition-all duration-300 {{ request()->is('services/keterangan*') ? 'bg-blue-700 text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/10' }} group">
+            <!-- <a href="{{ route('services.keterangan')}}" class="menu-item nav-hover flex items-center gap-3 px-6 py-2 rounded-lg transition-all duration-300 {{ request()->is('services/keterangan*') ? 'bg-blue-700 text-white' : 'text-gray-700 hover:bg-blue-50' }} group">
               <i class='bx bxs-info-circle text-blue-500 menu-icon {{ request()->is('services/keterangan*') ? 'text-white' : '' }}'></i>
               <span class="font-medium">Keterangan</span>
             </a> -->
-            <a href="{{ route('pelayanan.index')}}" class="menu-item nav-hover flex items-center gap-3 px-6 py-2 rounded-lg transition-all duration-300 {{ request()->is('services/pelayanan*') ? 'bg-blue-700 text-white' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/10' }} group">
+            <a href="{{ route('pelayanan.index')}}" class="menu-item nav-hover flex items-center gap-3 px-6 py-2 rounded-lg transition-all duration-300 {{ request()->is('services/pelayanan*') ? 'bg-blue-700 text-white' : 'text-gray-700 hover:bg-blue-50' }} group">
               <i class='bx bxs-cog text-blue-500 menu-icon {{ request()->is('services/pelayanan*') ? 'text-white' : '' }}'></i>
               <span class="font-medium">Pelayanan</span>
             </a>
@@ -151,23 +136,23 @@
         </li>
 
         <li>
-          <a href="/portofolios" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('portofolios*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/10 hover:text-blue-600 dark:hover:text-blue-400' }} group">
+          <a href="/portofolios" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('portofolios*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' }} group">
             <i class='bx bxs-briefcase text-blue-500 menu-icon {{ request()->is('portofolios*') ? 'text-white' : '' }}'></i> 
             <span class="font-medium">Portofolio</span>
             <i class='bx bx-chevron-right ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300'></i>
           </a>
         </li>
         
-        <li>
-          <a href="/mitras" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('mitras*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/10 hover:text-blue-600 dark:hover:text-blue-400' }} group">
+        <!-- <li>
+          <a href="/mitras" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('mitras*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' }} group">
             <i class='bx bxs-group text-blue-500 menu-icon {{ request()->is('mitras*') ? 'text-white' : '' }}'></i> 
             <span class="font-medium">Mitra</span>
             <i class='bx bx-chevron-right ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300'></i>
           </a>
-        </li>
+        </li> -->
         
         <li>
-          <a href="/pesans" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('pesans*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/10 hover:text-blue-600 dark:hover:text-blue-400' }} group">
+          <a href="/pesans" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('pesans*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' }} group">
             <i class='bx bxs-message-dots text-blue-500 menu-icon {{ request()->is('pesans*') ? 'text-white' : '' }}'></i> 
             <span class="font-medium">Pesan</span>
             <i class='bx bx-chevron-right ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300'></i>
@@ -175,7 +160,7 @@
         </li>
 
           <li>
-          <a href="{{ route('configurasi.index')}}" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('configurasi.index*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/10 hover:text-blue-600 dark:hover:text-blue-400' }} group">
+          <a href="{{ route('configurasi.index')}}" class="menu-item nav-hover flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 {{ request()->is('configurasi.index*') ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/25' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' }} group">
             <i class='bx bxs-cog text-blue-500 menu-icon {{ request()->is('configurasi.index*') ? 'text-white' : '' }}'></i> 
             <span class="font-medium">Configurasi</span>
             <i class='bx bx-chevron-right ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300'></i>
@@ -186,12 +171,12 @@
     </div>
     
     <!-- Logout Section -->
-    <div class="border-t border-gray-200 dark:border-gray-800 pt-4">
+    <div class="border-t border-gray-200 pt-4">
       <ul class="mb-6 space-y-2 px-6">
         <li>
           <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button type="submit" class="nav-hover flex items-center gap-3 px-6 py-3 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg text-red-500 hover:text-red-600 dark:hover:text-red-400 w-full text-left transition-all duration-300 group">
+            <button type="submit" class="nav-hover flex items-center gap-3 px-6 py-3 hover:bg-red-50 rounded-lg text-red-500 hover:text-red-600 w-full text-left transition-all duration-300 group">
               <i class='bx bxs-log-out-circle menu-icon group-hover:scale-110'></i> 
               <span class="font-medium">Logout</span>
               <i class='bx bx-chevron-right ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300'></i>
@@ -205,22 +190,22 @@
   <!-- CONTENT -->
   <section class="flex-1 flex flex-col ml-0 lg:ml-64 h-screen overflow-y-auto">
     <!-- NAVBAR -->
-    <nav class="flex justify-between items-center bg-white/80 dark:bg-black/80 backdrop-blur-md p-4 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-10 shadow-sm">
+    <nav class="flex justify-between items-center bg-white/80 backdrop-blur-md p-4 border-b border-gray-200 sticky top-0 z-10 shadow-sm">
       <div class="flex items-center gap-3">
-        <button onclick="toggleSidebar()" class="bx bx-menu text-blue-500 text-2xl cursor-pointer lg:hidden p-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 hover:scale-110"></button>
+        <button onclick="toggleSidebar()" class="bx bx-menu text-blue-500 text-2xl cursor-pointer lg:hidden p-2 rounded-lg hover:bg-blue-50 transition-all duration-200 hover:scale-110"></button>
         <div class="flex flex-col">
-          <span class="text-gray-700 dark:text-gray-300 font-semibold">Creative Digital</span>
-          <span class="text-xs text-gray-500 dark:text-gray-400">Management System</span>
+          <span class="text-gray-700 font-semibold">Creative Digital</span>
+          <span class="text-xs text-gray-500">Management System</span>
         </div>
       </div>
       
       <div class="flex items-center gap-4">
-        <div class="flex items-center gap-2 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 cursor-pointer">
+        <div class="flex items-center gap-2 p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-all duration-200 cursor-pointer">
           <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
             <i class='bx bxs-user text-white text-sm'></i>
           </div>
           <div class="hidden sm:block">
-            <p class="text-sm font-medium text-gray-800 dark:text-white">Admin</p>
+            <p class="text-sm font-medium text-gray-800">Admin</p>
           </div>
         
         </div>
@@ -228,7 +213,7 @@
     </nav>
 
     <!-- MAIN CONTENT -->
-    <div class="flex-1 p-6 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 min-h-full">
+    <div class="flex-1 p-6 bg-gradient-to-br from-gray-50 to-blue-50 min-h-full">
       @yield('body')
     </div>
   </section>

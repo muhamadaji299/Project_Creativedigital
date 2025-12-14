@@ -127,13 +127,24 @@
     @endforeach
 
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-12">
-      @foreach($mitra as $m)
       <div class="partner-card flex items-center justify-center p-6 bg-gray-50 rounded-lg">
-        @if($m->logo)
-        <img src="{{ asset('storage/'.$m->logo) }}" alt="Partner 1" class="partner-logo max-h-14">
-        @endif
+        <img src="{{ asset('img/mitra/burgerking.png') }}" alt="Partner 1" class="partner-logo max-h-14">
       </div>
-      @endforeach
+       <div class="partner-card flex items-center justify-center p-6 bg-gray-50 rounded-lg">
+       <img src="{{ asset('img/mitra/orikana.png') }}" alt="Partner 1" class="partner-logo max-h-14">
+      </div>
+      <div class="partner-card flex items-center justify-center p-6 bg-gray-50 rounded-lg">
+       <img src="{{ asset('img/mitra/orikana(2).png') }}" alt="Partner 1" class="partner-logo max-h-14">
+      </div>
+      <div class="partner-card flex items-center justify-center p-6 bg-gray-50 rounded-lg">
+       <img src="{{ asset('img/mitra/orikana(3).png') }}" alt="Partner 1" class="partner-logo max-h-14">
+      </div>
+      <div class="partner-card flex items-center justify-center p-6 bg-gray-50 rounded-lg">
+       <img src="{{ asset('img/mitra/pertamina.png') }}" alt="Partner 1" class="partner-logo max-h-14">
+      </div>
+      <div class="partner-card flex items-center justify-center p-6 bg-gray-50 rounded-lg">
+       <img src="{{ asset('img/mitra/pringles.png') }}" alt="Partner 1" class="partner-logo max-h-14">
+      </div>  
     </div>
   </div>
 </section>
